@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashok Oram - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .theme-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .skill-card {
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: #374151;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .toggle-switch.active {
+            background: #3B82F6;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(30px);
+        }
+    </style>
+</head>
+<body class="theme-transition bg-white text-gray-900" id="body">
+    <!-- Header with Theme Toggle -->
+    <header class="theme-transition bg-white shadow-lg sticky top-0 z-50" id="header">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-blue-600">Ashok Oram</h1>
+                <div class="flex items-center space-x-3">
+                    <button id="uploadToggle" class="text-sm px-3 py-1 bg-red-100 text-red-600 rounded-full font-medium hover:bg-red-200 transition-colors">
+                        🔒 Enable Upload
+                    </button>
+                    <span class="text-sm font-medium">🌞</span>
+                    <div class="toggle-switch" id="themeToggle">
+                        <div class="toggle-slider"></div>
+                    </div>
+                    <span class="text-sm font-medium">🌙</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="theme-transition bg-gradient-to-br from-blue-50 to-indigo-100 py-20" id="hero">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="w-32 h-32 rounded-full mx-auto mb-8 overflow-hidden border-4 border-white shadow-xl relative cursor-pointer" id="profileImageContainer">
+                    <img src="" alt="Ashok Oram" class="w-full h-full object-cover hidden" id="profileImage">
+                    <div class="w-full h-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white" id="defaultAvatar">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">AO</div>
+                        </div>
+                    </div>
+                    <input type="file" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-not-allowed" id="imageUpload" disabled>
+                </div>
+                <h1 class="text-5xl font-bold mb-6 text-gray-800 dark-mode-title">Ashok Oram</h1>
+                <p class="text-xl text-gray-600 mb-8 dark-mode-subtitle">Aspiring Software Developer & Technology Enthusiast</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Frontend Developer</span>
+                    <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">Problem Solver</span>
+                    <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">DSA Enthusiast</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Details Section -->
+    <section class="py-16 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50" id="about">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="theme-transition bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-xl p-8 text-white transform hover:scale-105 transition-transform" id="personalCard">
+                        <h3 class="text-xl font-semibold mb-6 text-yellow-300">Personal Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center bg-white/10 rounded-lg p-3 backdrop-blur-sm">
+                                <span class="text-2xl mr-3">👤</span>
+                                <div>
+                                    <p class="font-medium text-yellow-200">Name</p>
+                                    <p class="text-white">Ashok Oram</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center bg-white/10 rounded-lg p-3 backdrop-blur-sm">
+                                <span class="text-2xl mr-3">📍</span>
+                                <div>
+                                    <p class="font-medium text-yellow-200">Address</p>
+                                    <p class="text-white">At: Kenduberni</p>
+                                    <p class="text-white">PO: Patua</p>
+                                    <p class="text-white">Dist: Sundargarh</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="theme-transition bg-gradient-to-br from-green-500 to-teal-600 rounded-lg shadow-xl p-8 text-white transform hover:scale-105 transition-transform" id="educationCard">
+                        <h3 class="text-xl font-semibold mb-6 text-yellow-300">Education</h3>
+                        <div class="flex items-start bg-white/10 rounded-lg p-3 backdrop-blur-sm">
+                            <span class="text-2xl mr-3">🎓</span>
+                            <div>
+                                <p class="font-medium text-yellow-200">University</p>
+                                <p class="text-white">Veer Surendra Sai University of Technology</p>
+                                <p class="text-white">Burla</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="theme-transition bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-16" id="skillsSection">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Technical Skills</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <a href="https://www.w3schools.com/c/index.php" target="_blank" class="skill-card theme-transition bg-gradient-to-br from-red-400 to-red-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105">
+                        <div class="text-4xl mb-4">⚙</div>
+                        <h3 class="font-semibold text-white">C</h3>
+                        <p class="text-sm text-red-100 mt-2">Programming</p>
+                        <p class="text-xs text-yellow-300 mt-1">Click to learn →</p>
+                    </a>
+                    
+                    <a href="https://www.w3schools.com/cpp/default.asp" target="_blank" class="skill-card theme-transition bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105">
+                        <div class="text-4xl mb-4">🔧</div>
+                        <h3 class="font-semibold text-white">C++</h3>
+                        <p class="text-sm text-blue-100 mt-2">OOP</p>
+                        <p class="text-xs text-yellow-300 mt-1">Click to learn →</p>
+                    </a>
+                    
+                    <a href="https://www.w3schools.com/html/default.asp" target="_blank" class="skill-card theme-transition bg-gradient-to-br from-orange-400 to-orange-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105">
+                        <div class="text-4xl mb-4">🌐</div>
+                        <h3 class="font-semibold text-white">HTML</h3>
+                        <p class="text-sm text-orange-100 mt-2">Structure</p>
+                        <p class="text-xs text-yellow-300 mt-1">Click to learn →</p>
+                    </a>
+                    
+                    <a href="https://www.w3schools.com/css/default.asp" target="_blank" class="skill-card theme-transition bg-gradient-to-br from-purple-400 to-purple-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h3 class="font-semibold text-white">CSS</h3>
+                        <p class="text-sm text-purple-100 mt-2">Styling</p>
+                        <p class="text-xs text-yellow-300 mt-1">Click to learn →</p>
+                    </a>
+                    
+                    <a href="https://www.w3schools.com/js/default.asp" target="_blank" class="skill-card theme-transition bg-gradient-to-br from-yellow-400 to-yellow-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105">
+                        <div class="text-4xl mb-4">⚡</div>
+                        <h3 class="font-semibold text-white">JavaScript</h3>
+                        <p class="text-sm text-yellow-100 mt-2">Interactivity</p>
+                        <p class="text-xs text-orange-300 mt-1">Click to learn →</p>
+                    </a>
+                    
+                    <a href="https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/" target="_blank" class="skill-card theme-transition bg-gradient-to-br from-green-400 to-green-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105">
+                        <div class="text-4xl mb-4">🧠</div>
+                        <h3 class="font-semibold text-white">DSA</h3>
+                        <p class="text-sm text-green-100 mt-2">Algorithms</p>
+                        <p class="text-xs text-yellow-300 mt-1">Click to learn →</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50" id="contact">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">Get In Touch</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                I'm always interested in new opportunities and collaborations. 
+                Feel free to reach out if you'd like to connect!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="theme-transition bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white px-8 py-4 rounded-xl font-medium transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    📧 Email Me
+                </button>
+                <button class="theme-transition bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-medium transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    💼 LinkedIn
+                </button>
+                <a href="https://www.instagram.com/mr_ashok_6398?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="theme-transition bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-xl font-medium transition-all transform hover:scale-105 shadow-lg hover:shadow-xl inline-block">
+                    📷 Instagram
+                </a>
+                <button class="theme-transition bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-medium transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    📘 Facebook
+                </button>
+                <!-- Add inside your Contact section, above the buttons -->
+<form id="contactForm" class="max-w-md mx-auto mt-8 bg-white p-6 rounded-xl shadow-lg">
+  <input type="text" name="name" placeholder="Your Name" required class="w-full mb-4 px-4 py-2 rounded border">
+  <input type="email" name="email" placeholder="Your Email" required class="w-full mb-4 px-4 py-2 rounded border">
+  <textarea name="message" placeholder="Your Message" required class="w-full mb-4 px-4 py-2 rounded border"></textarea>
+  <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded font-medium">Send</button>
+</form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="theme-transition bg-gray-800 text-white py-8" id="footer">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Ashok Oram. All rights reserved.</p>
+            <p class="text-gray-400 mt-2">Built with passion and dedication</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.getElementById('body');
+        const header = document.getElementById('header');
+        const hero = document.getElementById('hero');
+        const personalCard = document.getElementById('personalCard');
+        const educationCard = document.getElementById('educationCard');
+        const skillsSection = document.getElementById('skillsSection');
+        const footer = document.getElementById('footer');
+        const skillCards = document.querySelectorAll('.skill-card');
+
+        let isDarkMode = false;
+
+        themeToggle.addEventListener('click', function() {
+            isDarkMode = !isDarkMode;
+            themeToggle.classList.toggle('active');
+            
+            const titleElement = document.querySelector('.dark-mode-title');
+            const subtitleElement = document.querySelector('.dark-mode-subtitle');
+            
+            if (isDarkMode) {
+                // Dark mode
+                body.className = 'theme-transition bg-slate-900 text-gray-100';
+                header.className = 'theme-transition bg-slate-800 shadow-2xl sticky top-0 z-50 border-b border-slate-700';
+                hero.className = 'theme-transition bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900 py-20';
+                personalCard.className = 'theme-transition bg-gradient-to-br from-indigo-600 to-purple-700 rounded-lg shadow-xl p-8 text-white transform hover:scale-105 transition-transform';
+                educationCard.className = 'theme-transition bg-gradient-to-br from-emerald-600 to-teal-700 rounded-lg shadow-xl p-8 text-white transform hover:scale-105 transition-transform';
+                skillsSection.className = 'theme-transition bg-gradient-to-br from-slate-800 via-slate-900 to-indigo-900 py-16';
+                footer.className = 'theme-transition bg-slate-950 text-gray-100 py-8 border-t border-slate-800';
+                
+                // Update hero text colors for dark mode
+                titleElement.className = 'text-5xl font-bold mb-6 text-white dark-mode-title';
+                subtitleElement.className = 'text-xl text-gray-300 mb-8 dark-mode-subtitle';
+                
+                skillCards.forEach((card, index) => {
+                    const colors = [
+                        'skill-card theme-transition bg-gradient-to-br from-red-600 to-red-800 text-white rounded-lg shadow-2xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105',
+                        'skill-card theme-transition bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-lg shadow-2xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105',
+                        'skill-card theme-transition bg-gradient-to-br from-orange-600 to-orange-800 text-white rounded-lg shadow-2xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105',
+                        'skill-card theme-transition bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg shadow-2xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105',
+                        'skill-card theme-transition bg-gradient-to-br from-yellow-600 to-yellow-800 text-white rounded-lg shadow-2xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105',
+                        'skill-card theme-transition bg-gradient-to-br from-green-600 to-green-800 text-white rounded-lg shadow-2xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105'
+                    ];
+                    card.className = colors[index];
+                });
+            } else {
+                // Light mode
+                body.className = 'theme-transition bg-white text-gray-900';
+                header.className = 'theme-transition bg-white shadow-lg sticky top-0 z-50';
+                hero.className = 'theme-transition bg-gradient-to-br from-blue-50 to-indigo-100 py-20';
+                personalCard.className = 'theme-transition bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-xl p-8 text-white transform hover:scale-105 transition-transform';
+                educationCard.className = 'theme-transition bg-gradient-to-br from-green-500 to-teal-600 rounded-lg shadow-xl p-8 text-white transform hover:scale-105 transition-transform';
+                skillsSection.className = 'theme-transition bg-gray-50 py-16';
+                footer.className = 'theme-transition bg-gray-800 text-white py-8';
+                
+                // Update hero text colors for light mode
+                titleElement.className = 'text-5xl font-bold mb-6 text-gray-800 dark-mode-title';
+                subtitleElement.className = 'text-xl text-gray-600 mb-8 dark-mode-subtitle';
+                
+                skillCards.forEach((card, index) => {
+                    const colors = [
+                        'skill-card theme-transition bg-gradient-to-br from-red-400 to-red-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105',
+                        'skill-card theme-transition bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105',
+                        'skill-card theme-transition bg-gradient-to-br from-orange-400 to-orange-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105',
+                        'skill-card theme-transition bg-gradient-to-br from-purple-400 to-purple-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105',
+                        'skill-card theme-transition bg-gradient-to-br from-yellow-400 to-yellow-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105',
+                        'skill-card theme-transition bg-gradient-to-br from-green-400 to-green-600 text-white rounded-lg shadow-xl p-6 text-center block hover:shadow-2xl cursor-pointer transform hover:scale-105'
+                    ];
+                    card.className = colors[index];
+                });
+            }
+        });
+
+        // Upload security controls
+        const uploadToggle = document.getElementById('uploadToggle');
+        const imageUpload = document.getElementById('imageUpload');
+        const profileImage = document.getElementById('profileImage');
+        const defaultAvatar = document.getElementById('defaultAvatar');
+        const profileContainer = document.getElementById('profileImageContainer');
+        
+        let uploadEnabled = false;
+        let uploadPassword = 'ashok2024'; // Admin password
+
+        uploadToggle.addEventListener('click', function() {
+            if (!uploadEnabled) {
+                const password = prompt('Enter admin password to enable image upload:');
+                if (password === uploadPassword) {
+                    uploadEnabled = true;
+                    imageUpload.disabled = false;
+                    imageUpload.className = 'absolute inset-0 w-full h-full opacity-0 cursor-pointer';
+                    uploadToggle.innerHTML = '🔓 Upload Enabled';
+                    uploadToggle.className = 'text-sm px-3 py-1 bg-green-100 text-green-600 rounded-full font-medium hover:bg-green-200 transition-colors';
+                    profileContainer.title = 'Click to upload your photo';
+                } else if (password !== null) {
+                    alert('Incorrect password. Upload remains disabled.');
+                }
+            } else {
+                uploadEnabled = false;
+                imageUpload.disabled = true;
+                imageUpload.className = 'absolute inset-0 w-full h-full opacity-0 cursor-not-allowed';
+                uploadToggle.innerHTML = '🔒 Enable Upload';
+                uploadToggle.className = 'text-sm px-3 py-1 bg-red-100 text-red-600 rounded-full font-medium hover:bg-red-200 transition-colors';
+                profileContainer.title = 'Upload disabled for security';
+            }
+        });
+
+        imageUpload.addEventListener('change', function(e) {
+            if (!uploadEnabled) return;
+            
+            const file = e.target.files[0];
+            if (file) {
+                // Validate file size (max 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('File too large. Please choose an image under 5MB.');
+                    return;
+                }
+                
+                // Validate file type
+                if (!file.type.startsWith('image/')) {
+                    alert('Please select a valid image file.');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileImage.src = e.target.result;
+                    profileImage.classList.remove('hidden');
+                    defaultAvatar.classList.add('hidden');
+                    
+                    // Save to localStorage for persistence
+                    localStorage.setItem('profileImage', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Load saved image on page load
+        const savedImage = localStorage.getItem('profileImage');
+        if (savedImage) {
+            profileImage.src = savedImage;
+            profileImage.classList.remove('hidden');
+            defaultAvatar.classList.add('hidden');
+        }
+        
+        // Set initial tooltip
+        profileContainer.title = 'Upload disabled for security';
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        // ...existing code...
+
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const formData = {
+    name: this.name.value,
+    email: this.email.value,
+    message: this.message.value
+  };
+  const response = await fetch('http://localhost:3000/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
+  });
+  if (response.ok) {
+    alert('Message sent!');
+    this.reset();
+  } else {
+    alert('Error sending message.');
+  }
+  
+});
+
+// ...existing code...
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96c57274d20ba753',t:'MTc1NDcyMzU2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
