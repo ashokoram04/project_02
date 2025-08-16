@@ -396,11 +396,11 @@ document.getElementById('contactForm').addEventListener('submit', async function
     email: this.email.value,
     message: this.message.value
   };
-  const response = await fetch('http://localhost:3000/contact', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData)
-  });
+  const response = await fetch('http://10.124.114.118:3000/contact', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(formData)
+});
   if (response.ok) {
     alert('Message sent!');
     this.reset();

@@ -35,6 +35,14 @@ app.post('/contact', (req, res) => {
     res.status(200).json({ message: 'Contact saved!' });
   });
 });
+const path = require('path'); // Add this at the top
+
+// ...existing code...
+
+// Serve static files from your project directory
+app.use(express.static(path.join(__dirname)));
+
+// ...existing code...
 
 app.listen(3000, () => {
   console.log('Server running on http://localhost:3000');
